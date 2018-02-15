@@ -20,8 +20,7 @@ package de.schildbach.wallet.ui.send;
 import org.bitcoinj.core.VersionedChecksummedBytes;
 
 import de.schildbach.wallet.ui.AbstractBindServiceActivity;
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.R;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;

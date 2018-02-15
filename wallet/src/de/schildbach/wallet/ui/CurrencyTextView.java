@@ -22,8 +22,7 @@ import org.bitcoinj.utils.MonetaryFormat;
 
 import de.schildbach.wallet.Constants;
 import de.schildbach.wallet.util.MonetarySpannable;
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.R;
 import android.content.Context;
 import android.graphics.Paint;
 import android.text.style.ForegroundColorSpan;

@@ -23,8 +23,7 @@ import java.util.Map;
 
 import com.google.zxing.ResultPoint;
 
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.R;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;

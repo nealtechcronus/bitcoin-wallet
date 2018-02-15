@@ -33,8 +33,7 @@ import de.schildbach.wallet.service.BlockchainState;
 import de.schildbach.wallet.service.BlockchainStateLoader;
 import de.schildbach.wallet.ui.send.FeeCategory;
 import de.schildbach.wallet.ui.send.SendCoinsActivity;
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.R;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager;
@@ -179,8 +178,9 @@ public final class WalletBalanceFragment extends Fragment {
     @Override
     public void onPrepareOptionsMenu(final Menu menu) {
         final boolean hasSomeBalance = balance != null && !balance.isLessThan(SOME_BALANCE_THRESHOLD);
-        menu.findItem(R.id.wallet_balance_options_donate)
-                .setVisible(Constants.DONATION_ADDRESS != null && (!installedFromGooglePlay || hasSomeBalance));
+        menu.findItem(R.id.wallet_balance_options_donate).setVisible(false);
+                //.setVisible(Constants.DONATION_ADDRESS != null && (!installedFromGooglePlay || hasSomeBalance));
+
 
         super.onPrepareOptionsMenu(menu);
     }
@@ -197,7 +197,7 @@ public final class WalletBalanceFragment extends Fragment {
     }
 
     private void handleDonate() {
-        SendCoinsActivity.startDonate(activity, null, FeeCategory.ECONOMIC, 0);
+       // SendCoinsActivity.startDonate(activity, null, FeeCategory.ECONOMIC, 0);
     }
 
     private void updateView() {

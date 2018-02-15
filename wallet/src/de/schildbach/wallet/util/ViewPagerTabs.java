@@ -20,8 +20,7 @@ package de.schildbach.wallet.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.R;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;

@@ -18,8 +18,7 @@
 package de.schildbach.wallet.ui;
 
 import de.schildbach.wallet.util.ViewPagerTabs;
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.R;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;

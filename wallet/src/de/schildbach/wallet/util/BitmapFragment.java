@@ -17,8 +17,7 @@
 
 package de.schildbach.wallet.util;
 
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.R;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;

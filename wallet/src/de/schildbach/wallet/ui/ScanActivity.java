@@ -34,8 +34,7 @@ import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 
 import de.schildbach.wallet.camera.CameraManager;
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.R;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;

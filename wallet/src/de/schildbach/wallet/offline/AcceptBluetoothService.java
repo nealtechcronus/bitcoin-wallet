@@ -28,8 +28,7 @@ import org.slf4j.LoggerFactory;
 import de.schildbach.wallet.WalletApplication;
 import de.schildbach.wallet.util.CrashReporter;
 import de.schildbach.wallet.util.Toast;
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.R;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;

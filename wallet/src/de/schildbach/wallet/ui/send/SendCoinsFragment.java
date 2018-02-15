@@ -82,8 +82,7 @@ import de.schildbach.wallet.ui.TransactionsAdapter;
 import de.schildbach.wallet.util.Bluetooth;
 import de.schildbach.wallet.util.Nfc;
 import de.schildbach.wallet.util.WalletUtils;
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.R;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -422,7 +421,7 @@ public final class SendCoinsFragment extends Fragment {
 
         @Override
         public void onLoadFinished(final Loader<Cursor> loader, Cursor data) {
-            if (data.getCount() == 0)
+            if ( data == null || data.getCount() == 0)
                 data = null;
             if (loader instanceof CursorLoader)
                 receivingAddressBookCursor = data;
@@ -1230,7 +1229,7 @@ public final class SendCoinsFragment extends Fragment {
                 if (paymentIntent.isBluetoothPaymentUrl())
                     directPaymentVisible = bluetoothAdapter != null;
                 else
-                    directPaymentVisible = true;
+                    directPaymentVisible = !Constants.BUG_OPENSSL_HEARTBLEED;
             } else {
                 directPaymentVisible = false;
             }
@@ -1442,7 +1441,8 @@ public final class SendCoinsFragment extends Fragment {
                         // ask for permission to enable bluetooth
                         startActivityForResult(new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE),
                                 REQUEST_CODE_ENABLE_BLUETOOTH_FOR_PAYMENT_REQUEST);
-                } else if (paymentIntent.hasPaymentRequestUrl() && paymentIntent.isHttpPaymentRequestUrl()) {
+                } else if (paymentIntent.hasPaymentRequestUrl() && paymentIntent.isHttpPaymentRequestUrl()
+                        && !Constants.BUG_OPENSSL_HEARTBLEED) {
                     requestPaymentRequest();
                 } else {
                     setState(State.INPUT);
@@ -1453,7 +1453,7 @@ public final class SendCoinsFragment extends Fragment {
                     if (paymentIntent.isBluetoothPaymentUrl())
                         directPaymentEnableView.setChecked(bluetoothAdapter != null && bluetoothAdapter.isEnabled());
                     else if (paymentIntent.isHttpPaymentUrl())
-                        directPaymentEnableView.setChecked(true);
+                        directPaymentEnableView.setChecked(!Constants.BUG_OPENSSL_HEARTBLEED);
 
                     requestFocusFirst();
                     updateView();

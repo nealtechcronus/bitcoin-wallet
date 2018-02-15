@@ -36,8 +36,7 @@ import org.bitcoinj.wallet.Wallet;
 import de.schildbach.wallet.Constants;
 import de.schildbach.wallet.data.AddressBookProvider;
 import de.schildbach.wallet.util.WalletUtils;
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.R;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;

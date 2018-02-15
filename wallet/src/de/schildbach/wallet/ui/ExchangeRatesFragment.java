@@ -32,7 +32,6 @@ import de.schildbach.wallet.data.ExchangeRate;
 import de.schildbach.wallet.data.ExchangeRatesProvider;
 import de.schildbach.wallet.service.BlockchainState;
 import de.schildbach.wallet.service.BlockchainStateLoader;
-import de.schildbach.wallet_test.R;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -62,6 +61,15 @@ import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
 import android.widget.TextView;
 import android.widget.ViewAnimator;
+
+import de.schildbach.wallet.Configuration;
+import de.schildbach.wallet.Constants;
+import de.schildbach.wallet.WalletApplication;
+import de.schildbach.wallet.WalletBalanceWidgetProvider;
+import de.schildbach.wallet.service.BlockchainState;
+import de.schildbach.wallet.service.BlockchainStateLoader;
+import de.schildbach.wallet.util.WholeStringBuilder;
+import se.btcx.wallet.R;
 
 /**
  * @author Andreas Schildbach
@@ -117,7 +125,7 @@ public final class ExchangeRatesFragment extends Fragment implements OnSharedPre
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
-            final Bundle savedInstanceState) {
+                             final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.exchange_rates_fragment, container, false);
         viewGroup = (ViewAnimator) view.findViewById(R.id.exchange_rates_list_group);
         recyclerView = (RecyclerView) view.findViewById(R.id.exchange_rates_list);
@@ -201,6 +209,7 @@ public final class ExchangeRatesFragment extends Fragment implements OnSharedPre
     private final LoaderCallbacks<Cursor> rateLoaderCallbacks = new LoaderManager.LoaderCallbacks<Cursor>() {
         @Override
         public Loader<Cursor> onCreateLoader(final int id, final Bundle args) {
+
             if (query == null)
                 return new CursorLoader(activity, contentUri, null, null, null, null);
             else

@@ -47,9 +47,8 @@ import de.schildbach.wallet.service.BlockchainService;
 import de.schildbach.wallet.service.BlockchainServiceImpl;
 import de.schildbach.wallet.util.Bluetooth;
 import de.schildbach.wallet.util.CrashReporter;
-import de.schildbach.wallet_test.BuildConfig;
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.BuildConfig;
+import se.btcx.wallet.R;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.Application;
@@ -499,12 +498,19 @@ public class WalletApplication extends Application {
         return httpUserAgent(packageInfo().versionName);
     }
 
+    public boolean isLowRamDevice() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+            return activityManager.isLowRamDevice();
+        else
+            return activityManager.getMemoryClass() <= Constants.MEMORY_CLASS_LOWEND;
+    }
+
     public int maxConnectedPeers() {
-        return activityManager.isLowRamDevice() ? 4 : 6;
+        return isLowRamDevice() ? 4 : 6;
     }
 
     public int scryptIterationsTarget() {
-        return activityManager.isLowRamDevice() ? Constants.SCRYPT_ITERATIONS_TARGET_LOWRAM : Constants.SCRYPT_ITERATIONS_TARGET;
+        return isLowRamDevice() ? Constants.SCRYPT_ITERATIONS_TARGET_LOWRAM : Constants.SCRYPT_ITERATIONS_TARGET;
     }
 
     public static void scheduleStartBlockchainService(final Context context) {

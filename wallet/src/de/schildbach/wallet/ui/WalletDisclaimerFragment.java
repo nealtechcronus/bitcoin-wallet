@@ -26,8 +26,7 @@ import de.schildbach.wallet.WalletApplication;
 import de.schildbach.wallet.service.BlockchainState;
 import de.schildbach.wallet.service.BlockchainState.Impediment;
 import de.schildbach.wallet.service.BlockchainStateLoader;
-import de.schildbach.wallet_test.R;
-
+import se.btcx.wallet.R;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager;
